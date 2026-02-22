@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gurudwara Shaheed Baba Mati Ji</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-beige: #E6DFD3; /* The warm beige from the reference */
+            --text-navy: #0F172A; /* Deep navy/charcoal for elegant contrast */
+            --btn-green: #2E422C; /* The dark forest green for the primary button */
+            --border-color: rgba(15, 23, 42, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-beige);
+            color: var(--text-navy);
+            font-family: 'Playfair Display', serif; /* Default to serif for this UI */
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            /* Subtle vertical stripes mimicking the reference background */
+            background-image: repeating-linear-gradient(
+                to right,
+                transparent,
+                transparent 10vw,
+                rgba(0, 0, 0, 0.015) 10vw,
+                rgba(0, 0, 0, 0.015) 20vw
+            );
+        }
+
+        .sans-text {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 4vw;
+        }
+
+        .logo { font-size: 1rem; font-weight: 500; letter-spacing: 0.1em; }
+
+        .nav-links { display: flex; gap: 1rem; align-items: center; }
+        
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-navy); 
+            font-size: 0.75rem; 
+            border: 1px solid var(--text-navy);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px; /* Pill shape from reference */
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover { background: rgba(15, 23, 42, 0.05); }
+
+        .nav-links a.primary-btn {
+            background: var(--btn-green);
+            color: #FFF;
+            border-color: var(--btn-green);
+        }
+        .nav-links a.primary-btn:hover {
+            background: #1f2e1e;
+        }
+
+        /* --- HERO SECTION (The LB - PARIS layout) --- */
+        .hero { padding: 4rem 0 6rem; }
+        
+        .hero-massive {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4vw;
+            margin-bottom: 4rem;
+        }
+
+        .hero-word {
+            font-size: clamp(5rem, 14vw, 15rem);
+            line-height: 1;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-line {
+            flex-grow: 1;
+            height: 2px;
+            background-color: var(--text-navy);
+            margin: 0 4vw;
+        }
+
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 4vw;
+        }
+
+        .hero-subtext {
+            width: 35%;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            padding-bottom: 2rem;
+        }
+
+        .hero-image-wrapper {
+            width: 55%;
+            height: 60vh;
+            border-radius: 24px; /* Soft rounded corners */
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        /* --- EDITORIAL SECTIONS (Replaces the brutalist 50/50 split) --- */
+        .editorial-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8rem 4vw;
+            gap: 6rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .editorial-section.reverse { flex-direction: row-reverse; }
+
+        .ed-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .ed-label {
+            font-size: 0.75rem;
+            margin-bottom: 1.5rem;
+            color: rgba(15, 23, 42, 0.6);
+        }
+
+        .ed-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .ed-body {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(15, 23, 42, 0.8);
+            max-width: 450px;
+        }
+
+        .ed-image {
+            flex: 1;
+            height: 70vh; /* Uniform dimensional height */
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+        }
+
+        .ed-image img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 6rem 4vw 4rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .footer-logo { font-size: 2rem; margin-bottom: 1rem; }
+        
+        .footer-committee { 
+            display: flex; 
+            gap: 4rem; 
+            font-family: 'Inter', sans-serif; 
+            font-size: 0.85rem; 
+        }
+        
+        .committee-block strong { 
+            display: block; 
+            margin-bottom: 0.4rem; 
+            color: rgba(15, 23, 42, 0.6); 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .hero-massive { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .hero-line { width: 100%; margin: 2rem 0; }
+            .hero-bottom { flex-direction: column; align-items: flex-start; gap: 3rem; }
+            .hero-subtext, .hero-image-wrapper { width: 100%; }
+            .editorial-section, .editorial-section.reverse { flex-direction: column; padding: 5rem 4vw; gap: 3rem; }
+            .ed-image { width: 100%; height: 50vh; }
+            .nav-links { display: none; }
+            footer { flex-direction: column; gap: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo sans-text">SHAHEED,</div>
+        <div class="nav-links sans-text">
+            <a href="#">HISTORY</a>
+            <a href="#">DARBAR</a>
+            <a href="#">COMMUNITY</a>
+            <a href="#" class="primary-btn">DONATE & VISIT</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-massive">
+            <span class="hero-word">BABA</span>
+            <span class="hero-line"></span>
+            <span class="hero-word">MATI JI</span>
+        </div>
+        <div class="hero-bottom">
+            <div class="hero-subtext sans-text">
+                EVERY GOOD PARTNERSHIP STARTS WITH DEVOTION. DISCOVER THE LEGACY OF THE SHAHEED BABA MATI JI AND A GURUDAWARA BUILT ON SEWA AND REMEMBERENCE.
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="3.png" alt="Gurudwara Exterior">
+            </div>
+        </div>
+    </section>
+
+    <section class="editorial-section">
+        <div class="ed-text">
+            <span class="ed-label sans-text">THE HISTORY</span>
+            <h2 class="ed-title">Valor Into<br>Devotion</h2>
+            <p class="ed-body">
+                Tracing back to the era of Biram Dev Minhas, the history of Daroli Kalan is etched in the blood of the brave Rajput family. Driven by a duty to protect the defenseless, Baba Mati Ji abandoned his wedding rituals mid-way to confront oppressors. Decapitated in battle, his headless body continued to wield his sword, driving the invaders away. He attained martyrdom right here.
+            </p>
+        </div>
+        <div class="ed-image">
+            <img src="babaji2.png" alt="Baba Mati Das Ji Rajput Warriors">
+        </div>
+    </section>
+
+    <section class="editorial-section reverse">
+        <div class="ed-text">
+            <span class="ed-label sans-text">ARCHITECTURE</span>
+            <h2 class="ed-title"><br>Memorial</h2>
+            <p class="ed-body">
+                We have recently inaugurated a new memorial on these grounds, specifically remembering the sewa of Bhram ji (Baba Dilawar Singh Ji) who served the community with unwavering dedication.
+            </p>
+        </div>
+        <div class="ed-image">
+            <img src="steel2.png" alt="Steel Monuments" style="object-position: top;">
+        </div>
+    </section>
+
+    <section class="editorial-section">
+        <div class="ed-text">
+            <span class="ed-label sans-text">COMMUNITY</span>
+            <h2 class="ed-title">Langar<br>Hall</h2>
+            <p class="ed-body">
+                A new, state-of-the-art facility ensuring the tradition of open, equal dining flourishes for the thousands of Sadh Sangat  at once. Here, regardless of caste or religon.
+            </p>
+        </div>
+        <div class="ed-image">
+            <img src="langar2.png" alt="Langar Hall">
+        </div>
+    </section>
+
+    <section class="editorial-section reverse">
+        <div class="ed-text">
+            <span class="ed-label sans-text">SPIRITUAL HEART</span>
+            <h2 class="ed-title">Divine<br>Tranquility</h2>
+            <p class="ed-body">
+                Under the sovereign presence of Sri Guru Granth Sahib Ji, the Sangat gathers here to find peace and connect with the Divine. Whether it is the quiet of the morning Nitnem or the vibrance of an evening Diwan, all are welcome.
+            </p>
+        </div>
+        <div class="ed-image">
+            <img src="in.png" alt="Darbar Hall Interior">
+        </div>
+    </section>
+
+    <section class="editorial-section">
+        <div class="ed-text">
+            <span class="ed-label sans-text">GURUDAWARA</span>
+            <h2 class="ed-title">Shaheed <br>Mehar Singh Ji</h2>
+            <p class="ed-body">
+                Alongside the main shrine stands Gurudwara Shaheed Mehar Singh Ji, commemorating their sacrifice, being a devoted Sikh who laid down his life in service to the humanity.
+            </p>
+        </div>
+        <div class="ed-image">
+            <img src="mehar.png" alt="Community School">
+        </div>
+    </section>
+
+    <footer>
+        <div style="max-width: 300px;">
+            <div class="footer-logo">Baba Mati Ji.</div>
+            <p class="ed-body" style="font-size: 0.85rem;">Daroli Kalan, Jalandhar. The daily Sewa is managed by a committee of dedicated Sewadars.</p>
+        </div>
+
+        <div class="footer-committee">
+            <div class="committee-block">
+                <strong>President</strong>
+                <span>S. Manohar Singh Minhas</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
